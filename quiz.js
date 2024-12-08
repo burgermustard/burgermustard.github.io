@@ -2,7 +2,7 @@ let quizData = []; // Now only this array is used
 let currentQuestionIndex = 0;
 let allAnswers = [];
 let currentStreak = 0;
-let highestStreak = parseInt(getCookie("highestStreak")) || 0;
+let highestStreak = localStorage.getItem('highestStreak') || 0;
 const csvFiles = ["quiz1.csv", "quiz2.csv", "quiz3.csv", "quiz4.csv", "quiz5.csv"];
 let selectedQuizzes = [];
 
@@ -376,7 +376,7 @@ function updateStreak(isCorrect) {
     document.getElementById("current-streak").textContent = currentStreak;
     if (currentStreak > highestStreak) {
         highestStreak = currentStreak;
-        setCookie("highestStreak", highestStreak, 365);  // Save the new highest streak for 1 year
+        localStorage.setItem('highestStreak', highestStreak);  // Save the new highest streak
         document.getElementById("highest-streak").textContent = highestStreak; // Update the UI
     }
 }
@@ -394,18 +394,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
-}
-function getCookie(name) {
-    const cookieArr = document.cookie.split("; ");
-    for (let cookie of cookieArr) {
-        const [key, value] = cookie.split("=");
-        if (key === name) {
-            return value;
-        }
-    }
-    return null;
-}
