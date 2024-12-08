@@ -2,7 +2,7 @@ let quizData = []; // Now only this array is used
 let currentQuestionIndex = 0;
 let allAnswers = [];
 let currentStreak = 0;
-let highestStreak = localStorage.getItem('highestStreak') || 0;
+let highestStreak = sessionStorage.getItem('highestStreak') || 0;
 const csvFiles = ["quiz1.csv", "quiz2.csv", "quiz3.csv", "quiz4.csv", "quiz5.csv"];
 let selectedQuizzes = [];
 
@@ -376,7 +376,7 @@ function updateStreak(isCorrect) {
     document.getElementById("current-streak").textContent = currentStreak;
     if (currentStreak > highestStreak) {
         highestStreak = currentStreak;
-        localStorage.setItem('highestStreak', highestStreak);  // Save the new highest streak
+        sessionStorage.setItem('highestStreak', highestStreak);  // Save the new highest streak
         document.getElementById("highest-streak").textContent = highestStreak; // Update the UI
     }
 }
