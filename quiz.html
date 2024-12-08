@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Učeníčko</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p class="texter">Partizip perfekt prosím psát v infinitivu např. haben/sein</p>
+    <div id="quiz-container">
+        <h1 id="question">Loading...</h1>
+
+        <!-- Streak Display -->
+        <div id="streak-display">
+            <p>Current Streak: <span id="current-streak">0</span></p>
+            <p>Highest Streak: <span id="highest-streak">0</span></p>
+        </div>
+
+        <div id="answers"></div>
+        <div id="result"></div>
+        <button id="next-button" style="display:none;">Next Question</button>
+    </div>
+
+    <!-- Sound Effects -->
+    <audio id="correct-sound" src="sound_effects/correct.mp3"></audio>
+    <audio id="incorrect-sound" src="sound_effects/incorrect.mp3"></audio>
+
+    <button id="back-button" class="back-button">Back to Menu</button>
+
+    <script src="quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="main-menu">
+        <h1>Welcome to the Quiz!</h1>
+        
+        <!-- Play Button -->
+        <button id="play-button">Play</button>
+
+        <!-- Checkboxes section -->
+        <div class="checkboxes">
+            <label><input type="checkbox" id="checkbox1"> Quiz 1</label>
+            <label><input type="checkbox" id="checkbox2"> Quiz 2</label>
+            <label><input type="checkbox" id="checkbox3"> Quiz 3</label>
+            <label><input type="checkbox" id="checkbox4"> Quiz 4</label>
+            <label><input type="checkbox" id="checkbox5"> Quiz 5</label>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Event listener for the play button
+        document.getElementById("play-button").addEventListener("click", function() {
+            // Save selected quizzes to local storage
+            const selectedQuizzes = [];
+            for (let i = 1; i <= 5; i++) {
+                const checkbox = document.getElementById(`checkbox${i}`);
+                if (checkbox && checkbox.checked) {
+                    selectedQuizzes.push(`quiz${i}.csv`);
+                }
+            }
+
+            if (selectedQuizzes.length === 0) {
+                alert("Please select at least one quiz to start!");
+                return;
+            }
+
+            localStorage.setItem("selectedQuizzes", JSON.stringify(selectedQuizzes));
+
+            // Redirect to quiz page
+            window.location.href = "quiz.html"; // Ensure the quiz page exists and is named correctly
+        });
+    </script>
+</body>
+<script src="main.js"></script>
+</html>

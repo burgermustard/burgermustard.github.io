@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#quiz-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Added for vertical alignment */
+    gap: 20px; /* Adds consistent spacing between children */
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    margin: 0; /* Removed margin for consistent centering */
+    width: 100%;
+    max-width: 350px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}
+
+#next-button {
+    background-color: #2196F3;
+    display: none;
+    margin-top: 20px;
+}
+
+#next-button:hover {
+    background-color: #0b7dda;
+}
+
+#result {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect {
+    color: red;
+    font-weight: bold;
+}
+
+/* Fix for the typed-answer input field */
+#answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px; /* Spacing between input and button */
+}
+
+#answers input[type="text"] {
+    width: 90%; /* Input field takes most of the container's width */
+    max-width: 350px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#answers button {
+    width: 90%; /* Button matches the width of the input field */
+    max-width: 350px;
+}
+
+/* Back Button Styles */
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #818181;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: white;
+    color: #818181;
+
+}
+
+#streak-display {
+    position: fixed; /* Fixes it in place on the screen */
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000; /* Ensures it's above other content */
+}
+
+#streak-display p {
+    margin: 5px 0;
+}
+#texter p{
+    color: #818181;
+    font-size: 16px;
+    top: 20px;
+    left: 20px;
+}
