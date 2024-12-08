@@ -380,3 +380,17 @@ function updateStreak(isCorrect) {
         document.getElementById("highest-streak").textContent = highestStreak; // Update the UI
     }
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const backButton = document.getElementById("back-button");
+
+    // Go back to the previous page when the back button is clicked
+    backButton.addEventListener("click", function () {
+        if (document.referrer) {
+            // If there is a previous page in the history, navigate back to it
+            window.history.back();
+        } else {
+            // Otherwise, redirect to the main menu or any other fallback page
+            window.location.href = "index.html"; // Change to your main menu page if necessary
+        }
+    });
+});
